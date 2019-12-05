@@ -38,8 +38,8 @@ $LABID = "f12";
 # What is the name of the host that the bomblab servers and daemons
 # are running on? Note that you don't need root access to run the
 # bomblab.  Any Linux desktop will do.
-$SERVER_NAME = "changeme.ics.cs.cmu.edu";
-
+# $SERVER_NAME = "changeme.ics.cs.cmu.edu";
+$SERVER_NAME = "liqingan.cn";
 # What is the penalty for exploding a notifying bomb? At CMU, we impose
 # a penalty of 0.5 points per explosion.
 $EXPLOSION_PENALTY = 0.5;
@@ -49,10 +49,10 @@ $EXPLOSION_PENALTY = 0.5;
 # have different notions of what a "user name" is. For example: "Enter
 # your full name", or "Enter your Andrew ID", or "Enter your Unix
 # login ID".
-$USERNAME_HINT = "Enter your Unix login ID";
+$USERNAME_HINT = "Enter your student ID\@whu";
 
 # How frequently (secs) is the realtime scoreboard updated?
-$UPDATE_PERIOD = 30;
+$UPDATE_PERIOD = 5;
 
 # How long to wait (secs) for the request daemon to finish serving a
 # client request before killing the request daemon and automatically

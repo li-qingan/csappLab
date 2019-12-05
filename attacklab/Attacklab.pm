@@ -21,17 +21,17 @@ use Time::Local;
 # What is the name of the host that the attacklab servers and daemons
 # are running on? Note that you don't need root access to run the
 # attacklab.  Any Linux desktop will do.
-$SERVER_NAME = "changeme.yourschool.edu";
+$SERVER_NAME = "liqingan.cn";
 
 # What hint should be displayed on the attacklab request form where the
 # students are asked to enter their user name? Different sites might
 # have different notions of what a "user name" is. For example: "Enter
 # your full name", or "Enter your Andrew ID", or "Enter your Unix
 # login ID".
-$USERNAME_HINT = "Enter your Unix login ID";
+$USERNAME_HINT = "Enter your student ID \@whu";
 
 # How frequently (secs) is the realtime scoreboard updated?
-$UPDATE_PERIOD = 20;
+$UPDATE_PERIOD = 10;
 
 # What ports do the servers listen on? Note: You should never need to
 # change either of these. The only exception would be the unlikely
