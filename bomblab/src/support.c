@@ -140,6 +140,7 @@ void initialize_bomb(void)
     }
 
     /* Make sure it's in the list of legal machines */
+/*
     for (i = 0; host_table[i]; i++) {
 	if (strcasecmp(host_table[i], hostname) == 0) {
 	    valid_host = 1;
@@ -151,6 +152,7 @@ void initialize_bomb(void)
 	exit(8);
     }
 
+*/
     /* Initialize the submitr package */
     if (init_driver(status_msg) < 0) {
 	printf("Initialization error:\n%s\n", status_msg);

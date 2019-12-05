@@ -48,6 +48,7 @@ static void initialize_target(int opt_level, int force_random) {
 	    exit(8);
 	}
 	/* Make sure it's in the list of legal machines */
+	/* 
 	for (i = 0; host_table[i]; i++) {
 	    if (strcasecmp(host_table[i], hostname) == 0) {
 		valid_host = 1;
@@ -58,6 +59,7 @@ static void initialize_target(int opt_level, int force_random) {
 	    printf("FAILED: Initialization error: Running on an illegal host [%s]\n", hostname);
 	    exit(8);
 	}
+	*/
 
 	/* Initialize the submitr package */
 	if (init_driver(status_msg) < 0) {
