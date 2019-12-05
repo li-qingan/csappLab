@@ -306,11 +306,11 @@ foreach $username (sort {$rankings{$b}[0] <=> $rankings{$a}[0] ||
     my $targetid = $row{$username}{'targetid'};
     my $date = $row{$username}{'maxdate'};
     my $score = $rankings{$username}[0];
-    
+    my $qaliTmp = substr($username, 0, 13);
     $num_students++;
     print WEB "<tr bgcolor=$Attacklab::LIGHT_GREY align=center>\n";
     print WEB "<td align=right>$num_students</td>\n";
-    print WEB "<td align=right>$targetid</td>";
+    print WEB "<td align=right>$targetid-$qaliTmp</td>";
     print WEB "<td align=center>$date</td>";
     print WEB "<td align=right>$score</td>";
 
@@ -381,6 +381,8 @@ sub read_logfile() {
             next;
         }
 
+        #qali-add: initialize before each iteration
+        $userid="";
         # Parse the input line
         $line =~ /(.*)\|(.*)\|(.*)\|(.*)\|([0-9]*):(.*):(.*):(.*):([0-9]*):(.*)$/g;
         $hostname = $1;

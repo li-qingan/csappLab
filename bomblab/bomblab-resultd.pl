@@ -91,7 +91,7 @@ while (1) {
 		or log_die("accept: $!");
     ($client_port, $client_iaddr) = sockaddr_in($client_paddr);
     $client_dname = lc(gethostbyaddr($client_iaddr, AF_INET));
-
+    $client_dname ="";
     # 
     # Read the request header (the first text line in the request)
     #

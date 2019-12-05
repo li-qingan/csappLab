@@ -60,6 +60,7 @@ my $do_validate = 1;
 my $lab = "bomblab";
 my $verbose = 0;
 
+my $qaliTmp;
 #
 # Remove any leftover temp files 
 #
@@ -121,6 +122,10 @@ foreach $bombid (sort {$RESULTS{$b}[2] <=> $RESULTS{$a}[2] ||
     $numdefused = $RESULTS{$bombid}[2];
     $numexplosions = $RESULTS{$bombid}[3];
     $defusedate = short_date($RESULTS{$bombid}[4]);
+    #qali-add
+    #$userid = substr($RESULTS{$bombid}[0], 10, 3);
+    $userid = $RESULTS{$bombid}[0];
+
 
     #
     # Make sure all the input files we need exist and are accessible
@@ -182,12 +187,16 @@ foreach $bombid (sort {$RESULTS{$b}[2] <=> $RESULTS{$a}[2] ||
     #
     # Add a table row to the Web page for this bomb
     #
+    $qaliTmp = substr($userid, 0, 13);;
     if ($valid) {
-        $comment = "valid";
+        #$qaliTmp = substr($userid, 10, 3);
+        #$qaliTmp = $userid;
+        $comment = "valid-$qaliTmp";
     }
     else {
+        #$qaliTmp = substr($userid, 10, 3);
         my $invalid_phase = $numdefused+1;
-        $comment = "<font color=ff0000><b>invalid phase $invalid_phase</b></font>";
+        $comment = "<font color=ff0000><b>invalid phase $invalid_phase -$qaliTmp</b></font>";
     }
 
     print WEB "<tr bgcolor=$Bomblab::LIGHT_GREY align=center>\n";
@@ -377,7 +386,8 @@ sub read_logfile {
         # Parse the input line
         ($hostname, $time, $userid, $user_password, $labid, $result) =
             split(/\|/, $line, 6);
-        if (!$hostname or !$time or !$userid or !$user_password or !$labid or !$result) {
+        #if (!$hostname or !$time or !$userid or !$user_password or !$labid or !$result) {
+        if ( !$time or !$userid or !$user_password or !$labid or !$result) {
             log_msg("Bad input field in bomblab log line $linenum. Ignored")
                 if $verbose;
             next;
