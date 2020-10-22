@@ -551,6 +551,8 @@ sub print_webpage_header {
     <font color=ff0000><b>invalid</b></font>, 
     this means your bomb reported a solution that didn't actually defuse your bomb.
 </td></tr></table>
+    <p>
+    (3+3+3+2+2+2=15 points)
 EOF
 
 print WEB "<p>Last updated: ", scalar localtime, " (updated every $Bomblab::UPDATE_PERIOD secs)<br>\n";
@@ -597,15 +599,15 @@ sub bomb_score {
 
 
     #Last two phases are worth 15 points each
-    if ($netdefused <= 4) {
-        $defusepts = $netdefused*10;
+    if ($netdefused <= 3) {
+        $defusepts = $netdefused*3;
     }
-    if ($netdefused == 5) {
-        $defusepts = 55;
+    if ($netdefused >= 4) {
+        $defusepts = 9 + ($netdefused - 3) * 2;
     }
-    if ($netdefused == 6) {
-        $defusepts = 70;
-    }
+    #if ($netdefused == 6) {
+    #   $defusepts = 70;
+    #}
     
     # Deduct EXPLOSION_PENALTY points for each explosion
     $explodepts_round = 

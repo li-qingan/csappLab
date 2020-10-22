@@ -31,7 +31,7 @@ my $MAX_PHASE = 5;
 my $MAX_CTARGET_PHASE = 3;
 my $MIN_RTARGET_LEVEL = 2;
 my $MAX_STRLEN = 1024;
-my @WEIGHT = (0, 10, 25, 25, 35, 5); # indexed starting at 1
+my @WEIGHT = (0, 3, 3, 3, 3, 3); # indexed starting at 1
 
 # Parameters
 my $silent_make = "-s";
@@ -75,6 +75,8 @@ my $k;
 # Read the submissions for each user into an array of the most recent
 # solutions for each phase.
 %users = read_logfile($logfile);
+
+
 
 # Create the reports directory if necessary
 if (! -e "reports") {
@@ -269,7 +271,12 @@ print WEB "
 <p>
 Here is the latest information that we have received from your 
 targets. 
+
 </td></tr></table>
+
+<p>
+(3+3+3+3+3=15 points)
+<p>
 ";
 
 print WEB "Last updated: ", scalar localtime, 
@@ -395,6 +402,7 @@ sub read_logfile() {
         $program = $8;
         $level = $9;
         $exploit = $10;	
+
 
         # Check the input line
         if (!$userid or !$course or !$targetid or !$status or !$authkey or !$program or !$level or !$exploit) {
