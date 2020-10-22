@@ -2,7 +2,7 @@
  * The hostname of the machine running the attacklab servers. It must
  * be identical to the SERVER_NAME in Attacklab.pm.  
  */
-#define SERVER_NAME "changeme.yourschool.edu"
+#define SERVER_NAME "liqingan.cn"
 
 /* 
  * The port that the result server listens to for autoresult strings
